@@ -1,0 +1,19 @@
+{
+  "name": "wavelength",
+  "version": "1.0.0",
+  "description": "A mini social media app — Express.js + SQLite backend, vanilla JS frontend, with a chatbot auto-reply feature.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["social-media", "express", "sqlite"],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}

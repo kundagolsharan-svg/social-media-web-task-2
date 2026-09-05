@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wavelength</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none">
+        <path d="M2 16c3-6 5-6 6 0s3 6 6 0 5-6 6 0 3 6 6 0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-word">Wavelength</span>
+    </div>
+    <div class="topbar-search">
+      <svg viewBox="0 0 20 20" width="16" height="16" fill="none"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="M18 18l-4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input id="searchInput" type="text" placeholder="Search people, tags, posts…" />
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="navHomeBtn" data-view="home" title="Home" aria-label="Home">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9a1 1 0 0 0 1 1h4v-6h2v6h4a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="icon-btn" id="navReelsBtn" data-view="reels" title="Reels" aria-label="Reels">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M3 15h18M8 4v16M16 4v16" stroke="currentColor" stroke-width="1.8"/></svg>
+      </button>
+      <button class="icon-btn" id="navMsgBtn" title="Messages" aria-label="Messages">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3.5 5.5h17a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-17a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8"/><path d="M3 6.5 12 13l9-6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="badge-dot" id="msgBadge" hidden></span>
+      </button>
+      <button class="icon-btn" id="navProfileBtn" title="Profile" aria-label="Your profile">
+        <img id="topAvatar" class="topbar-avatar" src="" alt="" />
+      </button>
+    </div>
+  </header>
+
+  <div class="app-body">
+
+    <!-- Left rail -->
+    <aside class="rail rail-left">
+      <div class="me-card" id="meCard">
+        <img id="meAvatar" class="me-avatar" src="" alt="" />
+        <div>
+          <div class="me-name" id="meName">—</div>
+          <div class="me-handle" id="meHandle">—</div>
+        </div>
+      </div>
+      <nav class="rail-nav">
+        <button class="rail-link active" data-view="home">
+          <span class="rail-dot" style="background:var(--accent-teal)"></span> Feed
+        </button>
+        <button class="rail-link" data-view="explore">
+          <span class="rail-dot" style="background:var(--accent-amber)"></span> Explore
+        </button>
+        <button class="rail-link" data-view="reels">
+          <span class="rail-dot" style="background:var(--accent-teal)"></span> Reels
+        </button>
+        <div class="reels-left-subcats" id="leftRailSubcats" hidden>
+          <button class="subcat-chip active" data-cat="All">✨ All</button>
+          <button class="subcat-chip" data-cat="Motivation">⚡ Motivation</button>
+          <button class="subcat-chip" data-cat="Comedy">😂 Comedy</button>
+          <button class="subcat-chip" data-cat="Serious">💭 Serious</button>
+          <button class="subcat-chip" data-cat="Gym Freak">🏋️‍♂️ Gym Freak</button>
+          <button class="subcat-chip" data-cat="Yoga">🧘‍♀️ Yoga</button>
+          <button class="subcat-chip" data-cat="Exercise">👟 Exercise</button>
+          <button class="subcat-chip" data-cat="Competitive Exam">📚 Exam</button>
+          <button class="subcat-chip" data-cat="Job">💼 Job</button>
+        </div>
+        <button class="rail-link" data-view="messages">
+          <span class="rail-dot" style="background:var(--accent-coral)"></span> Messages
+        </button>
+        <button class="rail-link" data-view="profile">
+          <span class="rail-dot" style="background:var(--accent-violet)"></span> Your profile
+        </button>
+      </nav>
+      <div class="rail-stats" id="meStats"></div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-col" id="mainCol">
+      <!-- views injected by app.js -->
+    </main>
+
+    <!-- Right rail -->
+    <aside class="rail rail-right" id="railRight">
+      <div class="panel" id="explorePanel">
+        <div class="panel-title">Who to follow</div>
+        <div id="suggestedList" class="suggested-list"></div>
+      </div>
+      <div class="panel" id="tagsPanel">
+        <div class="panel-title">On this frequency</div>
+        <div id="tagCloud" class="tag-cloud"></div>
+      </div>
+      <div class="panel" id="reelsCatPanel" hidden>
+        <div class="panel-title">Reels Categories</div>
+        <div id="reelsCategoryList" class="rail-nav"></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Message drawer -->
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<div class="msg-drawer" id="msgDrawer">
+  <div class="drawer-header">
+    <button class="drawer-back" id="drawerBack" hidden aria-label="Back to conversations">
+      <svg viewBox="0 0 20 20" width="18" height="18" fill="none"><path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="drawer-title" id="drawerTitle">Messages</div>
+    <button class="drawer-close" id="drawerClose" aria-label="Close messages">&times;</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
