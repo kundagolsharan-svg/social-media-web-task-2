@@ -14,6 +14,7 @@ visual identity) built with **Express.js + SQLite** on the backend and
 - **Auto-reply chatbot** — message "Wavelength Bot" and it writes back a few
   seconds later with a randomized reply (with a typing indicator), simulating
   a real auto-responder
+  **Reels** The reels with the categorisation like sad ,happy ,gym ,yoga ,motivation ,Competetativeexams ,jobs like this type of user specified reels 
 
 The database is seeded automatically on first run with realistic random
 users, posts, comments, likes, and follow relationships.
